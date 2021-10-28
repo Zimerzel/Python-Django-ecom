@@ -1,7 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-class Category(model.Model):
+class Category(models.Model):
     name = models.CharField(max_length=225, db_index=True)
     slug = models.SlugField(max_length=225, db_index=True)
 
@@ -9,7 +10,7 @@ class Category(model.Model):
         verbose_name_plural = 'categories'
 
     def __str__(self):
-    return self.name
+        return self.name
 
 
 class Product(models.Model):
@@ -27,7 +28,7 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name_plurual = 'Products'
+        verbose_name_plural = 'Products'
         ordering = ('-created',)
 
     def __str__(self):
